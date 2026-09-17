@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Documentation & Embed Guide — AccessEase</title>
+  <meta name="description" content="Official documentation and embed guide for integrating AccessEase into any website." />
+  <meta name="theme-color" content="#0a0e14">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/panel.css">
+</head>
+<body>
+  <div class="bg-particles"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo" style="display: flex; align-items: center; gap: 0.75rem;">
+        <img src="assets/images/logo.svg" alt="AccessEase Logo" width="36" height="36" style="border-radius: 8px;">
+        <span>ACCESS<span class="brand-ease">EASE</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="demo.html" class="nav-link">Demo</a>
+        <a href="docs.html" class="nav-link active">Docs</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="demo.html" class="btn btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">Live Demo</a>
+        <button class="mobile-menu-btn" aria-label="Toggle navigation menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Docs Content -->
+  <main id="main" style="padding: 9rem 1.5rem 5rem;">
+    <div class="container" style="max-width: 900px;">
+      <div style="margin-bottom: 3rem;" class="reveal">
+        <span style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">DOCUMENTATION</span>
+        <h1 style="font-size: clamp(2.25rem, 4vw, 3.25rem); margin-top: 0.5rem; margin-bottom: 1rem;">Embedding Guide</h1>
+        <p style="color: var(--text-secondary); font-size: 1.1rem;">
+          Integrate AccessEase into any website, web application, CMS (WordPress, Shopify, Webflow), or custom stack with a single line of code.
+        </p>
+      </div>
+
+      <!-- Quick Embed -->
+      <div class="glass-card reveal" style="margin-bottom: 3rem;">
+        <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Quick Embed</h2>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
+          Copy and paste this snippet right before the closing <code>&lt;/head&gt;</code> tag of your HTML document,
+          and upload the widget bundle to your own server.
+        </p>
+
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-dots" aria-hidden="true">
+              <div class="terminal-dot dot-red"></div>
+              <div class="terminal-dot dot-yellow"></div>
+              <div class="terminal-dot dot-green"></div>
+            </div>
+            <div class="terminal-title">embed-snippet.html</div>
+            <button id="copy-btn" class="btn btn-outline" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;">Copy Code</button>
+          </div>
+          <div class="terminal-body" id="code-snippet">&lt;script src="/accessease.js" async
+        data-position="bottom-right"
+        data-lang="en-US"&gt;&lt;/script&gt;</div>
+        </div>
+        <p id="copy-status" role="status" aria-live="polite" style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--accent-teal); min-height: 1.25em;"></p>
+
+        <h3 style="font-size: 1rem; margin: 1.5rem 0 0.75rem;">What to upload</h3>
+        <ol style="color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.25rem; list-style: decimal;">
+          <li style="margin-bottom: 0.5rem;">Build the bundle with <code>npm run build:widget</code> (or copy <code>widget-build/accessease.js</code> from this repository).</li>
+          <li style="margin-bottom: 0.5rem;">Upload it so it is reachable at the path used in <code>src</code> above.</li>
+          <li>Optionally upload <code>fonts/OpenDyslexic-Regular.woff2</code> to a <code>fonts/</code> folder next to the bundle. If you skip this, the dyslexia font is loaded from a CDN fallback instead.</li>
+        </ol>
+
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 1.5rem; padding: 1rem; border: 1px solid var(--border-color); border-left: 3px solid #ffbd2e; border-radius: 8px;">
+          <strong>Not hosted publicly yet:</strong> there is no AccessEase CDN build. Earlier versions of this page showed
+          <code>https://cdn.accessease.io/…</code>, which never resolved. Use the self-host steps above — they work today.
+        </p>
+      </div>
+
+      <!-- Configuration Options Table -->
+      <div class="glass-card reveal" style="margin-bottom: 4rem;">
+        <h2 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Configuration Attributes</h2>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
+          All attributes are optional and are read from the <code>&lt;script&gt;</code> tag that loads the widget.
+        </p>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; min-width: 560px;">
+            <caption class="ae-sr-only">AccessEase widget configuration attributes</caption>
+            <thead>
+              <tr style="border-bottom: 1px solid var(--border-color); color: var(--text-secondary);">
+                <th scope="col" style="padding: 0.75rem 1rem; font-family: var(--font-mono);">Attribute</th>
+                <th scope="col" style="padding: 0.75rem 1rem; font-family: var(--font-mono);">Type</th>
+                <th scope="col" style="padding: 0.75rem 1rem;">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent-cyan);">data-position</td>
+                <td style="padding: 1rem; font-family: var(--font-mono); color: var(--text-secondary);">string</td>
+                <td style="padding: 1rem; color: var(--text-secondary);">Where the floating button sits: <code>bottom-right</code> (default), <code>bottom-left</code>, <code>top-right</code>, <code>top-left</code>.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent-cyan);">data-accent</td>
+                <td style="padding: 1rem; font-family: var(--font-mono); color: var(--text-secondary);">hex</td>
+                <td style="padding: 1rem; color: var(--text-secondary);">Overrides the accent colour used by the button and the active tool states, e.g. <code>#ff6b6b</code>.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent-cyan);">data-lang</td>
+                <td style="padding: 1rem; font-family: var(--font-mono); color: var(--text-secondary);">string</td>
+                <td style="padding: 1rem; color: var(--text-secondary);">Language for speech recognition and speech synthesis, e.g. <code>hi-IN</code>. Falls back to the page's <code>lang</code> attribute.</td>
+              </tr>
+              <tr>
+                <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent-cyan);">data-storage-key</td>
+                <td style="padding: 1rem; font-family: var(--font-mono); color: var(--text-secondary);">string</td>
+                <td style="padding: 1rem; color: var(--text-secondary);">localStorage key used for the visitor's saved preferences. Change it if another script on your site uses the default.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- JavaScript API -->
+      <div class="glass-card reveal" style="margin-bottom: 4rem;">
+        <h2 style="font-size: 1.25rem; margin-bottom: 0.75rem;">JavaScript API</h2>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
+          The bundle exposes a small <code>window.AccessEase</code> handle for opening the panel from your own UI.
+        </p>
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-dots" aria-hidden="true">
+              <div class="terminal-dot dot-red"></div>
+              <div class="terminal-dot dot-yellow"></div>
+              <div class="terminal-dot dot-green"></div>
+            </div>
+            <div class="terminal-title">api.js</div>
+          </div>
+          <div class="terminal-body" id="api-snippet">AccessEase.open();              // open the panel
+AccessEase.close();             // close the panel
+AccessEase.settings();          // current settings object
+AccessEase.config;              // resolved data-* attributes
+AccessEase.defaults;            // default settings</div>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 1rem;">
+          The widget mounts after the DOM is ready, so check <code>AccessEase.ready</code> if you call it very early.
+        </p>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="reveal">
+        <h2 style="font-size: 1.75rem; margin-bottom: 2rem;">Frequently Asked Questions</h2>
+
+        <div class="accordion-item">
+          <button class="accordion-header" id="faq-1-header" aria-expanded="false" aria-controls="faq-1-body">
+            <span>Does AccessEase slow down my website?</span>
+            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="accordion-body" id="faq-1-body" role="region" aria-labelledby="faq-1-header">
+            The full widget bundle is about 47 kb unminified and loads asynchronously, so it never blocks rendering. It ships no dependencies and adds no network requests beyond the optional font.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" id="faq-2-header" aria-expanded="false" aria-controls="faq-2-body">
+            <span>Is AccessEase WCAG and ADA compliant?</span>
+            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="accordion-body" id="faq-2-body" role="region" aria-labelledby="faq-2-header">
+            AccessEase gives visitors user-controlled assistive tooling: reading aids, speech output, voice input, and contrast options. No overlay can make an inaccessible site conformant on its own, so treat this as one part of a WCAG 2.1 AA/AAA effort — not as a replacement for accessible markup, semantics, and testing with real users.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" id="faq-3-header" aria-expanded="false" aria-controls="faq-3-body">
+            <span>Can I customize the color scheme to match my brand?</span>
+            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="accordion-body" id="faq-3-body" role="region" aria-labelledby="faq-3-header">
+            Yes. Pass an accent colour with <code>data-accent</code>, or override the widget's CSS custom properties (<code>--ae-cyan</code>, <code>--ae-teal</code>, <code>--ae-surface</code>) from your own stylesheet.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" id="faq-4-header" aria-expanded="false" aria-controls="faq-4-body">
+            <span>Where are visitor preferences stored?</span>
+            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="accordion-body" id="faq-4-body" role="region" aria-labelledby="faq-4-header">
+            Only in the visitor's own browser, under the localStorage key <code>accessease_settings_v2</code> (changeable with <code>data-storage-key</code>). Nothing is sent to a server, and "Reset All Settings" clears it.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <div>&copy; 2026 AccessEase. All rights reserved.</div>
+        <div>Official documentation.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+  <script>
+    // Copy-to-clipboard with a real fallback: navigator.clipboard is unavailable on plain
+    // http, which is exactly how these docs are usually previewed.
+    var copyBtn = document.getElementById('copy-btn');
+    var copyStatus = document.getElementById('copy-status');
+
+    function reportCopy(message) {
+      copyStatus.textContent = message;
+      copyBtn.textContent = 'Copied!';
+      setTimeout(function () {
+        copyBtn.textContent = 'Copy Code';
+      }, 2000);
+    }
+
+    copyBtn.addEventListener('click', function () {
+      var code = document.getElementById('code-snippet').textContent.trim();
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(code).then(
+          function () { reportCopy('Snippet copied to your clipboard.'); },
+          function () { copyStatus.textContent = 'Copy failed — please select the snippet manually.'; }
+        );
+        return;
+      }
+      var range = document.createRange();
+      range.selectNodeContents(document.getElementById('code-snippet'));
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      copyStatus.textContent = 'Clipboard unavailable — the snippet is selected, press Ctrl/Cmd + C.';
+    });
+
+    document.querySelectorAll('.accordion-header').forEach(function (header) {
+      header.addEventListener('click', function () {
+        var item = header.parentElement;
+        var open = item.classList.toggle('active');
+        header.setAttribute('aria-expanded', String(open));
+      });
+    });
+  </script>
+</body>
+</html>

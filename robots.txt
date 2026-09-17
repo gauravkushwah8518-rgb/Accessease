@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# No sitemap is listed because this project has no configured production domain yet.
+# Once it does, add:
+#   Sitemap: https://example.com/sitemap.xml

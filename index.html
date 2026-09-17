@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>AccessEase — Universal Web Accessibility Toolkit</title>
+  <meta name="description" content="Accessibility for every website in one line of code. Dyslexia-friendly reading, text-to-speech, voice commands, color-blind filters, and more." />
+  <meta name="theme-color" content="#0a0e14">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AccessEase">
+  <meta property="og:title" content="AccessEase — Universal Web Accessibility Toolkit">
+  <meta property="og:description" content="Dyslexia-friendly reading, text-to-speech, voice commands, color-blindness previews and keyboard navigation in one lightweight embeddable widget.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/panel.css">
+</head>
+<body>
+  <div class="bg-particles"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo" style="display: flex; align-items: center; gap: 0.75rem;">
+        <img src="assets/images/logo.svg" alt="AccessEase Logo" width="36" height="36" style="border-radius: 8px;">
+        <span>ACCESS<span class="brand-ease">EASE</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="demo.html" class="nav-link">Demo</a>
+        <a href="docs.html" class="nav-link">Docs</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="demo.html" class="btn btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">Live Demo</a>
+        <button class="mobile-menu-btn" aria-label="Toggle navigation menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero" style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8rem 1.5rem 4rem; position: relative;">
+      
+      <!-- Massive Wordmark Logo -->
+      <h1 class="reveal" style="font-family: var(--font-mono); font-size: clamp(36px, 8vw, 130px); font-weight: 700; letter-spacing: -0.04em; margin-bottom: 1rem; line-height: 1;">
+        ACCESS<span style="background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">EASE</span><span class="terminal-cursor"></span>
+      </h1>
+
+      <!-- Terminal Prompt Typing Line -->
+      <div class="reveal" style="margin-bottom: 2rem;">
+        <span style="font-family: var(--font-mono); font-size: clamp(0.9rem, 2vw, 1.1rem); color: var(--accent-cyan); background: rgba(0, 217, 245, 0.1); padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid var(--border-color); display: inline-block;">
+          $ <span id="typing-prompt">npx accessease --init</span>
+        </span>
+      </div>
+
+      <!-- Tagline & Description -->
+      <p class="reveal" style="font-size: clamp(1.1rem, 2.5vw, 1.75rem); max-width: 750px; margin-bottom: 1.25rem; font-family: var(--font-heading); font-weight: 600;">
+        Universal accessibility toolkit that any website owner can embed instantly.
+      </p>
+      <p class="reveal" style="color: var(--text-secondary); max-width: 600px; font-size: clamp(0.95rem, 1.5vw, 1.05rem); margin-bottom: 2.5rem; padding: 0 1rem;">
+        Dyslexia-friendly reading, text-to-speech, voice commands, color-blindness simulation previews, and keyboard navigation helper in one lightweight widget.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="reveal" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 4rem;">
+        <a href="docs.html" class="btn btn-primary">Get the Widget</a>
+        <a href="demo.html" class="btn btn-outline">Explore Live Demo</a>
+      </div>
+
+      <!-- Floating Glass Browser Mockup -->
+      <div class="reveal terminal-window" style="width: 100%; max-width: 900px; text-align: left;">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <div class="terminal-dot dot-red"></div>
+            <div class="terminal-dot dot-yellow"></div>
+            <div class="terminal-dot dot-green"></div>
+          </div>
+          <div class="terminal-title">accessease-widget-preview.html</div>
+          <button id="rerun-terminal-btn" class="btn btn-outline" style="padding: 0.2rem 0.5rem; font-size: 0.7rem;">Re-run Log</button>
+        </div>
+        <div id="hero-terminal-body" class="terminal-body" style="background: var(--surface); padding: clamp(1rem, 3vw, 2rem); color: var(--text-primary);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+            <span style="font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem;">Sample Website Header</span>
+            <span style="font-size: 0.85rem; color: var(--accent-cyan); font-family: var(--font-mono);">Click bottom-right icon to open panel &rarr;</span>
+          </div>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.7;">
+            Welcome to AccessEase. This interactive panel allows visitors to customize text size, switch to dyslexia-friendly typography, activate color blindness filters, and read pages aloud with AI text-to-speech.
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; flex: 1; min-width: 240px; border: 1px solid var(--border-color);">
+              <strong style="color: var(--accent-teal);">10+ Tools Built-in</strong>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.25rem;">Zero configuration required.</p>
+            </div>
+            <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; flex: 1; min-width: 240px; border: 1px solid var(--border-color);">
+              <strong style="color: var(--accent-cyan);">60 FPS Performance</strong>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.25rem;">Ultra-smooth CSS transitions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="container" style="padding: 5rem 1.5rem;">
+      <div style="text-align: center; margin-bottom: 3.5rem;" class="reveal">
+        <span style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">01 / FEATURES</span>
+        <h2 style="font-size: clamp(2rem, 4vw, 3rem); margin-top: 0.5rem;">Everything you need for total accessibility</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem;">
+        <!-- Card 1 -->
+        <div class="glass-card reveal">
+          <div style="color: var(--accent-cyan); margin-bottom: 1rem;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
+          </div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Dyslexia-Friendly Typography</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Instantly switch to OpenDyslexic font with optimized letter spacing and word grouping to eliminate reading fatigue.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card reveal">
+          <div style="color: var(--accent-teal); margin-bottom: 1rem;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          </div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">AI Text-to-Speech</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Natural speech synthesis engine that reads any article, paragraph, or interface element aloud with speed control.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card reveal">
+          <div style="color: var(--accent-purple); margin-bottom: 1rem;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18.5V22"/></svg>
+          </div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Voice Navigation Commands</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Hands-free browsing powered by Web Speech API. Control reader modes and panel options using simple voice prompts.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glass-card reveal">
+          <div style="color: var(--accent-cyan); margin-bottom: 1rem;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Color-Blindness Simulation</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Real-time SVG color matrix filters that preview how your site looks to users with Protanopia, Deuteranopia, Tritanopia, or Achromatopsia.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="glass-card reveal">
+          <div style="color: var(--accent-teal); margin-bottom: 1rem;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M6 11h2M10 11h2M14 11h2M18 11h2"/></svg>
+          </div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Interactive Reading Ruler</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">High-contrast focus bar that follows your cursor smoothly to prevent line skipping and improve reading concentration.</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="glass-card reveal">
+          <div style="color: var(--accent-purple); margin-bottom: 1rem;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Dark Mode & Contrast</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Advanced high-contrast light and dark color schemes engineered to exceed WCAG AAA readability standards.</p>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="glass-card reveal">
+          <div style="color: var(--accent-cyan); margin-bottom: 1rem;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Persistent Memory</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Local storage synchronization remembers visitor accessibility preferences across every page load automatically.</p>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="glass-card reveal">
+          <div style="color: var(--accent-teal); margin-bottom: 1rem;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 3 21 12 12 15 9 21 3 3"/></svg>
+          </div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Enlarged Precision Cursor</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">High-visibility vector pointer cursor replacement for users with low vision or motor control challenges.</p>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="glass-card reveal">
+          <div style="color: var(--accent-purple); margin-bottom: 1rem;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          </div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Link & Button Highlighter</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Instantly highlights every interactive link and button with glowing bounding boxes so nothing gets missed.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="container" style="padding: 5rem 1.5rem; border-top: 1px solid var(--border-color);">
+      <div style="text-align: center; margin-bottom: 3.5rem;" class="reveal">
+        <span style="font-family: var(--font-mono); color: var(--accent-teal); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">02 / INTEGRATION</span>
+        <h2 style="font-size: clamp(2rem, 4vw, 3rem); margin-top: 0.5rem;">Embed in 30 seconds</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem;">
+        <div class="glass-card reveal" style="position: relative;">
+          <span style="font-family: var(--font-mono); font-size: 3rem; font-weight: 700; color: rgba(255,255,255,0.05); position: absolute; top: 1rem; right: 1.5rem;">01</span>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--accent-cyan);">Install Script</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Paste our single asynchronous JavaScript tag right before the closing &lt;/head&gt; tag of your website.</p>
+        </div>
+
+        <div class="glass-card reveal" style="position: relative;">
+          <span style="font-family: var(--font-mono); font-size: 3rem; font-weight: 700; color: rgba(255,255,255,0.05); position: absolute; top: 1rem; right: 1.5rem;">02</span>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--accent-teal);">Configure Widget</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Customize accent color, button position, and enabled tool sets via simple data attributes or JS config.</p>
+        </div>
+
+        <div class="glass-card reveal" style="position: relative;">
+          <span style="font-family: var(--font-mono); font-size: 3rem; font-weight: 700; color: rgba(255,255,255,0.05); position: absolute; top: 1rem; right: 1.5rem;">03</span>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--accent-purple);">Ship Accessible</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Your site instantly becomes WCAG compliant with a stunning floating accessibility menu for all visitors.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Footer Banner -->
+    <section class="container" style="padding: 4rem 1.5rem 6rem; text-align: center;">
+      <div class="glass-card reveal" style="background: linear-gradient(135deg, #12161f 0%, #1a2233 100%); padding: clamp(2rem, 5vw, 4rem) 1.5rem; border-color: rgba(0, 217, 245, 0.2); box-shadow: var(--shadow-glow);">
+        <h2 style="font-size: clamp(1.75rem, 3.5vw, 2.75rem); margin-bottom: 1rem;">Ready to make your website fully accessible?</h2>
+        <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 2.5rem; font-size: 1.05rem;">Join hundreds of modern web properties deploying AccessEase today.</p>
+        <a href="docs.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Get Started Free</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="nav-logo" style="margin-bottom: 1rem;">
+            ACCESS<span class="brand-ease">EASE</span>
+          </div>
+          <p>Universal accessibility toolkit empowering websites with dyslexia tools, text-to-speech, and color blindness filters in one line of code.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="demo.html">Interactive Demo</a>
+            <a href="docs.html">Documentation</a>
+            <a href="about.html">About Mission</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Toolkit Features</h4>
+          <div class="footer-links">
+            <a href="demo.html">Dyslexia Font</a>
+            <a href="demo.html">Text-to-Speech</a>
+            <a href="demo.html">Voice Commands</a>
+            <a href="demo.html">Color Filters</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Legal & Open Source</h4>
+          <div class="footer-links">
+            <a href="docs.html">Privacy Policy</a>
+            <a href="docs.html">Terms of Service</a>
+            <a href="https://github.com" target="_blank" rel="noopener">GitHub Repository</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 AccessEase. All rights reserved. Built for everyone.</div>
+        <div>Designed with precision and inclusivity.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+  <script type="module">
+    import { initTypingEffect } from './js/typingEffect.js';
+    import { initTerminalAnimation } from './js/terminalAnimation.js';
+
+    initTypingEffect('typing-prompt', ['npx accessease --init', '<script src="accessease.js"><\/script>', 'accessibility for all web users']);
+    initTerminalAnimation();
+
+    const rerunBtn = document.getElementById('rerun-terminal-btn');
+    if (rerunBtn) {
+      rerunBtn.addEventListener('click', () => {
+        initTerminalAnimation();
+      });
+    }
+  </script>
+</body>
+</html>

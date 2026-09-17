@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Interactive Playground — AccessEase Demo</title>
+  <meta name="description" content="Test all 10 AccessEase accessibility tools live on sample website content." />
+  <meta name="theme-color" content="#0a0e14">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/panel.css">
+</head>
+<body>
+  <div class="bg-particles"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo" style="display: flex; align-items: center; gap: 0.75rem;">
+        <img src="assets/images/logo.svg" alt="AccessEase Logo" width="36" height="36" style="border-radius: 8px;">
+        <span>ACCESS<span class="brand-ease">EASE</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="demo.html" class="nav-link active">Demo</a>
+        <a href="docs.html" class="nav-link">Docs</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="docs.html" class="btn btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">Get Widget</a>
+        <button class="mobile-menu-btn" aria-label="Toggle navigation menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Demo Content -->
+  <main style="padding: 9rem 1.5rem 5rem;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3.5rem;" class="reveal">
+        <span style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">LIVE PLAYGROUND</span>
+        <h1 style="font-size: clamp(2.25rem, 4.5vw, 3.5rem); margin-top: 0.5rem;">Test AccessEase in Action</h1>
+        <p style="color: var(--text-secondary); max-width: 650px; margin: 1rem auto 0; font-size: 1.1rem; padding: 0 1rem;">
+          Click the floating accessibility widget icon at the bottom right of your screen to open the toolkit and test typography, text-to-speech, color blindness filters, and more.
+        </p>
+      </div>
+
+      <!-- Sample Website Article Card -->
+      <div class="glass-card reveal" style="max-width: 900px; margin: 0 auto 4rem; padding: clamp(1.5rem, 4vw, 3rem);">
+        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap;">
+          <span style="background: rgba(0, 217, 245, 0.1); color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.85rem; padding: 0.25rem 0.75rem; border-radius: 4px;">Sample Article</span>
+          <span style="color: var(--text-muted); font-size: 0.9rem;">Reading Time: 3 mins</span>
+        </div>
+
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 1.5rem;">The Future of Inclusive Digital Design</h2>
+        
+        <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 1.05rem;">
+          Digital accessibility is not merely a compliance checkbox—it is a fundamental commitment to human inclusion. Over 15% of the global population experiences some form of sensory or cognitive disability when interacting with digital interfaces.
+        </p>
+
+        <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 1.05rem;">
+          By empowering websites with modular tools such as dyslexia-friendly typography scaling, high-contrast themes, speech synthesis, and color blindness filters, we can ensure the World Wide Web remains a universal medium for all people.
+        </p>
+
+        <blockquote style="border-left: 3px solid var(--accent-cyan); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: var(--text-primary); font-size: 1.15rem;">
+          "The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect."
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; font-style: normal; font-family: var(--font-mono);">— Tim Berners-Lee</div>
+        </blockquote>
+
+        <h3 style="font-size: 1.35rem; margin: 2rem 0 1rem;">Interactive Elements to Test</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+          Try clicking these sample links and buttons while experimenting with the AccessEase accessibility panel:
+        </p>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          <button type="button" class="btn btn-primary" data-sample-action="Primary Action Button">Primary Action Button</button>
+          <button type="button" class="btn btn-outline" data-sample-action="Secondary Button">Secondary Button</button>
+          <button type="button" class="sample-link" data-sample-action="Inline hyperlink">Learn more about accessibility standards &rarr;</button>
+        </div>
+        <p id="sample-action-status" role="status" aria-live="polite" style="margin-top: 1.25rem; font-size: 0.9rem; color: var(--accent-teal); min-height: 1.4em;"></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <div>&copy; 2026 AccessEase. All rights reserved.</div>
+        <div>Playground demo environment.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+  <script>
+    // Sample controls used to try out link/button highlighting. A live region reports the
+    // result instead of a modal alert(), which would interrupt screen-reader users.
+    var sampleStatus = document.getElementById('sample-action-status');
+    document.querySelectorAll('[data-sample-action]').forEach(function (control) {
+      control.addEventListener('click', function () {
+        sampleStatus.textContent = control.getAttribute('data-sample-action') + ' clicked \u2014 sample interaction only.';
+      });
+    });
+  </script>
+</body>
+</html>

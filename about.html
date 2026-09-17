@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>About Our Mission — AccessEase</title>
+  <meta name="description" content="Learn about AccessEase's mission to make the entire web universally accessible." />
+  <meta name="theme-color" content="#0a0e14">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/panel.css">
+</head>
+<body>
+  <div class="bg-particles"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo" style="display: flex; align-items: center; gap: 0.75rem;">
+        <img src="assets/images/logo.svg" alt="AccessEase Logo" width="36" height="36" style="border-radius: 8px;">
+        <span>ACCESS<span class="brand-ease">EASE</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="demo.html" class="nav-link">Demo</a>
+        <a href="docs.html" class="nav-link">Docs</a>
+        <a href="about.html" class="nav-link active">About</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="demo.html" class="btn btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">Live Demo</a>
+        <button class="mobile-menu-btn" aria-label="Toggle navigation menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Content -->
+  <main style="padding: 9rem 1.5rem 5rem;">
+    <div class="container" style="max-width: 900px;">
+      <div style="text-align: center; margin-bottom: 3.5rem;" class="reveal">
+        <span style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">OUR MISSION</span>
+        <h1 style="font-size: clamp(2.25rem, 4.5vw, 3.5rem); margin-top: 0.5rem; margin-bottom: 1.5rem;">Making the Web Accessible for Everyone</h1>
+        <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; max-width: 750px; margin: 0 auto; padding: 0 1rem;">
+          We believe the internet is humanity's greatest library and collaboration space. No one should ever be locked out of knowledge, commerce, or community due to a disability.
+        </p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.75rem; margin-bottom: 4rem;" class="reveal">
+        <div class="glass-card" style="text-align: center;">
+          <div style="font-family: var(--font-mono); font-size: 2.5rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.5rem;">15%</div>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Global population experiencing some form of disability.</p>
+        </div>
+        <div class="glass-card" style="text-align: center;">
+          <div style="font-family: var(--font-mono); font-size: 2.5rem; font-weight: 700; color: var(--accent-teal); margin-bottom: 0.5rem;">500+</div>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Websites powered by AccessEase worldwide.</p>
+        </div>
+        <div class="glass-card" style="text-align: center;">
+          <div style="font-family: var(--font-mono); font-size: 2.5rem; font-weight: 700; color: var(--accent-purple); margin-bottom: 0.5rem;">100%</div>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Open & standards-compliant vanilla architecture.</p>
+        </div>
+      </div>
+
+      <!-- Mission Statement Card -->
+      <div class="glass-card reveal" style="padding: clamp(1.5rem, 4vw, 3rem); margin-bottom: 4rem;">
+        <h2 style="font-size: 1.75rem; margin-bottom: 1.5rem;">Why We Built AccessEase</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 1.05rem; line-height: 1.7;">
+          Traditional web accessibility solutions often require complex server infrastructure, heavy third-party npm dependencies, or expensive monthly SaaS contracts that small creators and businesses cannot afford.
+        </p>
+        <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">
+          AccessEase was born out of a desire for simplicity and empowerment: a lightweight, lightning-fast toolkit that puts robust accessibility controls directly in the hands of website visitors without compromising site performance or privacy.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <div>&copy; 2026 AccessEase. All rights reserved.</div>
+        <div>About our mission.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

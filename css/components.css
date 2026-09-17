@@ -1,0 +1,193 @@
+/* Design tokens come from variables.css, which every page links first. */
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  transition: var(--transition-smooth);
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  background-size: 200% auto;
+  color: #0a0e14;
+  box-shadow: 0 4px 20px rgba(0, 217, 245, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+  background-position: right center;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-cyan);
+  background: rgba(0, 217, 245, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Inline link styled as a button — used by the demo page's sample controls */
+.sample-link {
+  color: var(--accent-cyan);
+  text-decoration: underline;
+  font-weight: 500;
+  font-size: inherit;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.sample-link:hover {
+  color: var(--accent-teal);
+}
+
+/* Glass Cards */
+.glass-card {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  box-shadow: var(--shadow-card);
+}
+
+/* Sparrow-style mouse spotlight: a soft radial glow that follows the cursor.
+   JS feeds --mx/--my; CSS only fades the layer in and out. */
+.glass-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(0, 217, 245, 0.09), transparent 45%);
+}
+
+.glass-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0, 217, 245, 0.1), 0 0 40px rgba(0, 217, 245, 0.06);
+}
+
+.glass-card:hover::after {
+  opacity: 1;
+}
+
+/* Terminal Window */
+.terminal-window {
+  background: #0d1117;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.terminal-header {
+  background: #161b22;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.terminal-title {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.terminal-body {
+  padding: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: #e6edf3;
+  overflow-x: auto;
+}
+
+/* Accordion */
+.accordion-item {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  background: transparent;
+}
+
+.accordion-icon {
+  transition: transform 0.3s ease;
+  color: var(--accent-cyan);
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  padding: 0 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* The max-height value only needs to be larger than the tallest answer. It is deliberately
+   generous: clipping the answer is far worse than a slightly eager transition. */
+.accordion-item.active .accordion-body {
+  max-height: 40rem;
+  padding-bottom: 1.5rem;
+}
+
+.accordion-body code {
+  background: var(--bg-secondary);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}

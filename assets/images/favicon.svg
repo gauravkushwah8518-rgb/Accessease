@@ -1,0 +1,22 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AccessEase">
+  <title>AccessEase</title>
+  <defs>
+    <linearGradient id="ae-fav" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00F5A0"/>
+      <stop offset="0.5" stop-color="#00D9F5"/>
+      <stop offset="1" stop-color="#6A5CFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="24" fill="#0A0E14"/>
+  <g fill="url(#ae-fav)">
+    <circle cx="50" cy="50" r="12"/>
+    <rect x="44" y="16" width="12" height="24" rx="6"/>
+    <rect x="44" y="60" width="12" height="24" rx="6"/>
+    <rect x="16" y="44" width="24" height="12" rx="6"/>
+    <rect x="60" y="44" width="24" height="12" rx="6"/>
+    <rect x="23.5146" y="23.5146" width="12" height="24" rx="6" transform="rotate(45 23.5146 23.5146)"/>
+    <rect x="54.8528" y="54.8528" width="12" height="24" rx="6" transform="rotate(45 54.8528 54.8528)"/>
+    <rect x="64.4854" y="23.5146" width="12" height="24" rx="6" transform="rotate(135 64.4854 23.5146)"/>
+    <rect x="33.1472" y="54.8528" width="12" height="24" rx="6" transform="rotate(135 33.1472 54.8528)"/>
+  </g>
+</svg>

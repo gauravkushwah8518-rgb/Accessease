@@ -1,0 +1,299 @@
+/* Floating Trigger Button */
+#accessease-trigger {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99999;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: #0a0e14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 217, 245, 0.4);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+}
+
+#accessease-trigger:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(0, 217, 245, 0.6);
+}
+
+#accessease-trigger svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
+
+/* Accessibility Panel Modal / Drawer */
+#accessease-panel {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 400px;
+  max-width: 100vw;
+  height: 100vh;
+  background: var(--surface);
+  border-left: 1px solid var(--border-color);
+  box-shadow: -10px 0 50px rgba(0,0,0,0.7);
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  /* visibility keeps the closed panel out of the tab order while still allowing
+     the slide-in transition to play. */
+  visibility: hidden;
+  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+}
+
+#accessease-panel:focus {
+  outline: none;
+}
+
+#accessease-panel.open {
+  right: 0;
+  visibility: visible;
+}
+
+.ae-panel-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-secondary);
+}
+
+.ae-panel-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ae-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: var(--transition-smooth);
+}
+
+.ae-close-btn:hover {
+  color: var(--text-primary);
+  background: var(--border-color);
+}
+
+.ae-panel-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ae-section-title {
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.ae-grid-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.ae-option-card[aria-pressed="true"] {
+  background: rgba(0, 217, 245, 0.1);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+.ae-select {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.ae-panel-status {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-hover);
+  background: rgba(0, 217, 245, 0.08);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+}
+
+.ae-panel-status.is-error {
+  border-color: #ff5f56;
+  background: rgba(255, 95, 86, 0.12);
+}
+
+/* Visible to screen readers only */
+.ae-sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ae-option-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.ae-option-card:hover {
+  border-color: var(--accent-cyan);
+  color: var(--text-primary);
+}
+
+.ae-option-card.active {
+  background: rgba(0, 217, 245, 0.1);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+.ae-option-card svg {
+  width: 24px;
+  height: 24px;
+}
+
+.ae-control-group {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ae-control-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.ae-slider {
+  width: 100%;
+  accent-color: var(--accent-cyan);
+  cursor: pointer;
+}
+
+.ae-panel-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ae-reset-btn {
+  color: #ff5f56;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Reading Ruler Element */
+#accessease-ruler {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: rgba(0, 217, 245, 0.15);
+  border-top: 2px solid var(--accent-cyan);
+  border-bottom: 2px solid var(--accent-cyan);
+  pointer-events: none;
+  z-index: 99998;
+  display: none;
+  will-change: transform;
+}
+
+/* Dyslexia font helper applied to body */
+body.accessibility-dyslexia * {
+  font-family: 'OpenDyslexic-Regular', sans-serif !important;
+  letter-spacing: 0.05em !important;
+  word-spacing: 0.1em !important;
+}
+
+/* High Contrast Mode */
+body.accessibility-high-contrast {
+  --bg-primary: #000000 !important;
+  --bg-secondary: #000000 !important;
+  --surface: #000000 !important;
+  --text-primary: #ffff00 !important;
+  --text-secondary: #ffffff !important;
+  --border-color: #ffffff !important;
+}
+
+body.accessibility-high-contrast a {
+  color: #00ffff !important;
+  text-decoration: underline !important;
+}
+
+/* Big Cursor — a 48px high-visibility pointer with a 6/2 hotspot so clicks still land
+   on the visual tip of the arrow. */
+body.accessibility-big-cursor,
+body.accessibility-big-cursor * {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><polygon points="3 3 21 12 12 15 9 21 3 3" fill="%2300d9f5" stroke="%230a0e14" stroke-width="1.5" stroke-linejoin="round"/></svg>') 6 2, auto !important;
+}
+
+body.accessibility-big-cursor a,
+body.accessibility-big-cursor button,
+body.accessibility-big-cursor [role="button"] {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="%2300d9f5" stroke="%230a0e14" stroke-width="1.5"/></svg>') 12 12, pointer !important;
+}
+
+/* Highlight Links */
+body.accessibility-highlight-links a {
+  background-color: rgba(0, 217, 245, 0.25) !important;
+  border: 2px solid var(--accent-cyan) !important;
+  padding: 0.1rem 0.3rem !important;
+  border-radius: 4px !important;
+}

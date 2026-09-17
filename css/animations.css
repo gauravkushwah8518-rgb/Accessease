@@ -1,0 +1,168 @@
+@import './variables.css';
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.terminal-cursor {
+  display: inline-block;
+  background-color: var(--accent-cyan);
+  width: 0.6em;
+  height: 1.1em;
+  vertical-align: -0.15em;
+  margin-left: 0.2rem;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes drift {
+  0% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-20px) translateX(15px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+.bg-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 20% 30%, rgba(0, 245, 160, 0.08) 0%, transparent 40%),
+                    radial-gradient(circle at 80% 70%, rgba(106, 92, 255, 0.08) 0%, transparent 40%);
+  z-index: -1;
+  pointer-events: none;
+  animation: drift 25s ease-in-out infinite;
+  overflow: hidden;
+}
+
+/* Ambient color orbs (Sparrow-style): soft radial washes that slowly drift.
+   Pure gradients — no filters — so compositing stays cheap and glitch-free. */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.orb.a {
+  width: 1100px;
+  height: 850px;
+  left: 50%;
+  top: -360px;
+  margin-left: -550px;
+  background: radial-gradient(closest-side at 50% 30%, rgba(0, 217, 245, 0.16), rgba(0, 217, 245, 0.05) 55%, transparent 78%);
+  animation: orb-drift 16s ease-in-out infinite alternate;
+}
+
+.orb.b {
+  width: 850px;
+  height: 850px;
+  left: -240px;
+  top: 26%;
+  background: radial-gradient(closest-side, rgba(0, 245, 160, 0.07), transparent 72%);
+  animation: orb-drift 21s ease-in-out infinite alternate-reverse;
+}
+
+.orb.c {
+  width: 850px;
+  height: 850px;
+  right: -220px;
+  top: 18%;
+  background: radial-gradient(closest-side, rgba(106, 92, 255, 0.08), transparent 72%);
+  animation: orb-drift 25s ease-in-out infinite alternate;
+}
+
+@keyframes orb-drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(60px, 60px, 0) scale(1.06); }
+}
+
+/* Film grain overlay: two SVG turbulence speckles, blended over the orbs.
+   Killed entirely for reduced-motion users via the shared block below. */
+.orb-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.22' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23c)' opacity='0.55'/%3E%3C/svg%3E"),
+                    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23f)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 180px 180px, 140px 140px;
+  opacity: 0.11;
+  mix-blend-mode: overlay;
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Sparrow-style stagger: siblings inside a grid/section enter one after another.
+   Applied only when JS adds .stagger to the parent. */
+.stagger > .reveal:nth-child(1) { transition-delay: 0s; }
+.stagger > .reveal:nth-child(2) { transition-delay: 0.07s; }
+.stagger > .reveal:nth-child(3) { transition-delay: 0.14s; }
+.stagger > .reveal:nth-child(4) { transition-delay: 0.21s; }
+.stagger > .reveal:nth-child(5) { transition-delay: 0.28s; }
+.stagger > .reveal:nth-child(6) { transition-delay: 0.35s; }
+.stagger > .reveal:nth-child(7) { transition-delay: 0.42s; }
+.stagger > .reveal:nth-child(8) { transition-delay: 0.49s; }
+.stagger > .reveal:nth-child(n + 9) { transition-delay: 0.56s; }
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Progressive enhancement: .reveal starts at opacity 0 and is only revealed by JS.
+   Without this fallback a blocked or failed script leaves the whole page invisible. */
+html.no-js .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Respect prefers-reduced-motion: disable or drastically shorten animations/transitions */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .terminal-cursor {
+    animation: none;
+  }
+
+  .bg-particles {
+    animation: none;
+  }
+
+  .orb {
+    animation: none;
+  }
+
+  .orb-grain {
+    display: none;
+  }
+
+  .stagger > .reveal {
+    transition-delay: 0s !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  .reveal.in-view {
+    opacity: 1;
+    transform: none;
+  }
+}

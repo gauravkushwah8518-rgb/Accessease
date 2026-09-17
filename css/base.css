@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* OpenDyslexic ships with the project. `local()` comes first so a visitor who already has
+   the font installed downloads nothing, and the CDN copy is a fallback for deploys that
+   forget to copy fonts/ (the old placeholder file made this feature silently do nothing). */
+@font-face {
+  font-family: 'OpenDyslexic-Regular';
+  src: local('OpenDyslexic'),
+       url('../fonts/OpenDyslexic-Regular.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/antijingoist/opendyslexic@master/compiled/OpenDyslexic-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+code, pre, .mono {
+  font-family: var(--font-mono);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Enhanced Keyboard Navigation Focus-Visible Helper */
+:focus-visible {
+  outline: 3px solid var(--accent-cyan) !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 15px rgba(0, 217, 245, 0.5) !important;
+}
+
+body.accessibility-keyboard-helper *:focus {
+  outline: 4px dashed #ffbd2e !important;
+  outline-offset: 4px !important;
+  background-color: rgba(255, 189, 46, 0.15) !important;
+}
+
+/* Colour-blindness preview.
+   The filter is set on the page's top-level content elements instead of on <html>:
+   filtering the root would make it a containing block and break every `position: fixed`
+   element, and it would also filter the AccessEase panel itself.
+   AccessEase's own UI carries .ae-ui and is never marked, so it stays unfiltered. */
+[data-accessease-filtered] {
+  filter: var(--accessease-color-filter);
+}
