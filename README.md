@@ -188,3 +188,6 @@ npm test
 - **Accessible by default** — the toolkit's own UI is keyboard-navigable, screen-reader
   announced (`aria-live`), focus-trapped, and reduced-motion aware. An accessibility tool
   that isn't accessible would be embarrassing.
+
+  ⭐ If you found this project useful, consider giving it a star!
+💙 Keep learning. Keep building. Keep creating. 🚀
